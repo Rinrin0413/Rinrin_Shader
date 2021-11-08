@@ -151,14 +151,34 @@ diffuse = diffuse * TEXTURE_1.Sample(TextureSampler1, PSInput.uv1);
 
 
 diffuse.rgb = pow(diffuse.rgb, 1.28); // pow pow
+
+// ▼ BLEND S
+#if defined(BLEND)
+float3 tx = diffuse.rgb;
+const float S = 2.3;
+if(tx.r > tx.g && tx.r > tx.b) {
+	diffuse.r *= S;
+} else {
+	if(tx.g > tx.r && tx.g > tx.b) {
+		diffuse.g *= S;
+	} else {
+		if(tx.b > tx.r && tx.b > tx.g) {
+			diffuse.b *= S;
+		}
+	}	
+}
+#endif
+// ▲ BLEND S
+
+// DB
+float isDay = TEXTURE_1.Sample(TextureSampler1, float2(0.0, 1.0)).r;
+float isRain = smoothstep(0.5, 0.4, FOG_CONTROL.x);
+
 //Shadow
 float shadow = lerp(0.5, 1.0, smoothstep(0.84, 0.90, PSInput.uv1.y));
 diffuse.rgb *= lerp(shadow, 1.0, PSInput.uv1.x);
 
 // ▼ Light
-float isDay = TEXTURE_1.Sample(TextureSampler1, float2(0, 1)).r;
-float isRain = smoothstep(0.5, 0.4, FOG_CONTROL.x);
-
 const float3 dayLight = float3(1.5, 0.08, 0.0) * 2.0;
 const float3 rainLight = float3(1.0, 0.65, 0.0) * 1.4;
 
@@ -277,10 +297,22 @@ diffuse.rgb *= lerp(0.5, 1.0, smoothstep(0.42, 0.6, PSInput.color.g));
 // ▲ Side shadow
 
 // ▼ Fog
+float isTwilight = clamp((FOG_COLOR.r-0.1)-FOG_COLOR.b,0.0,0.5)*2.0;
+
+const float3 dayFog = float3(0.68, 0.82,0.94)*1.23;// day fog color
+const float3 nightFog = float3(-1.0, -1.0, -1.0);// night fog color
+const float3 twilightFog = float3(0.75, 0.24, 0.0)*0.47;// dusk & dawn fog color
+const float3 rainFog = float3(0.63, 0.8,0.86);//  rain fog color
+float3 fogClr = lerp(lerp(lerp(nightFog, dayFog, isDay), twilightFog, isTwilight), rainFog, isRain);
+
 float rainDist = lerp(1.0, 0.23, isRain);
-float fog = smoothstep(0.0 , RENDER_DISTANCE*rainDist, length(PSInput.wP));
-diffuse.rgb = lerp(diffuse.rgb, FOG_COLOR.rgb*2.2, fog);
-// ▲ Fog\
+float fog = smoothstep(0.0, RENDER_DISTANCE*0.9*rainDist, length(PSInput.wP));
+
+diffuse.rgb = lerp(diffuse.rgb, fogClr, fog);
+
+diffuse.rgb += lerp(0.0, float3(1.0, 0.31, 0.0)*0.18, isTwilight);
+diffuse.r *= 1.19;
+// ▲ Fog
 
 /*明度によってハイライト(不採用)
 float uv_maxV = 0.5;
