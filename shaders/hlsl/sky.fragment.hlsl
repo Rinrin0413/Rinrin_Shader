@@ -56,29 +56,37 @@ void main(in PS_Input PSInput, out PS_Output PSOutput)
 
 float4 diffuse = CURRENT_COLOR;
 
+// DB
 float dayLight = saturate(CURRENT_COLOR.b + CURRENT_COLOR.g);
 float rain = bool(step(FOG_CONTROL.x, 0.0)) ? 0.0 : smoothstep(0.5, 0.4, FOG_CONTROL.x);// With the exception of Underwater
+float isTwilight = clamp((FOG_COLOR.r-0.1)-FOG_COLOR.b,0.0,0.5)*2.0;// dusk & dawn
 
 // ▼ Sky color
 const float3 daySky = float3(0.5647058823529412, 0.796078431372549, 0.9822222222222222);// Day sky color
+const float3 twilightSky = float3(0.75, 0.5, 0.25);// dusk & dawn  sky color
 const float3 nightSky = float3(0.19607843137254902, 0.0, 0.3176470588235294);// Night Sky color
 const float3 rainSky = float3(0.35, 0.35, 0.35);// Sky color when in rains
-float3 skyColor = lerp(lerp(nightSky, daySky, dayLight), rainSky + lerp(nightSky, daySky, dayLight)/3.0, rain);
+float3 skyColor = lerp(lerp(lerp(nightSky, daySky, dayLight), twilightSky, isTwilight), rainSky + lerp(nightSky, daySky, dayLight)/3.0, rain);
 // ▲ Sky color
 
 // ▼ Cloud color
 const float3 dayCloud = float3(0.85, 0.9, 1.0) + 0.15;// Day cloud color
+const float3 twilightCloud = float3(0.525, 0.475, 0.425)*0.87;// dusk & dawn  sky color
 const float3 nightCloud = float3(0.7764705882352941, 0.7019607843137254, 1.0) - 0.4;// Night cloud color
 const float3 rainCloud  = float3(0.7, 0.7, 0.7);// Rain cloud color
-float3 cloudColor = lerp(lerp(nightCloud, dayCloud, dayLight),rainCloud , rain);
+float3 cloudColor = lerp(lerp(lerp(nightCloud, dayCloud, dayLight), twilightCloud, isTwilight),rainCloud , rain);
 // ▲ cloud color
 
-// ▼ Rendering clouds
+// ▼ Rendering 
 float cloudLower = lerp(0.4, 0.1, rain);// Deepen clouds when it rains
 float cloud = fbm(PSInput.pos.xz * 5.7);// Shape of clouds
-diffuse.rgb = lerp(skyColor, cloudColor, smoothstep(cloudLower, 0.77, cloud));
-// ▲ Rendering clouds
-    
-PSOutput.color = lerp( diffuse, FOG_COLOR, PSInput.fog );
+float3 skyTT = lerp(skyColor, cloudColor, smoothstep(cloudLower, 0.77, cloud));
+// ▲ Rendering
 
+float sky = smoothstep(0.5, 0.0, PSInput.fog);
+float adyss = smoothstep(0.65, 0.0, PSInput.fog);
+
+diffuse.rgb = lerp(lerp(FOG_COLOR, CURRENT_COLOR, adyss), skyTT, sky);
+
+PSOutput.color = diffuse;//lerp( diffuse, FOG_COLOR, PSInput.fog )
 }

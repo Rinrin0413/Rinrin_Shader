@@ -29,13 +29,17 @@ ROOT_SIGNATURE
 void main(in VS_Input VSInput, out PS_Input PSInput)
 {
 
+//Dome sky
+float4 psd = float4(VSInput.position,1);
+psd.y += -length(psd.xz)*0.278;
+
 float4 skyPos = float4(VSInput.position, 1);
 
 #ifdef INSTANCEDSTEREO
 	int i = VSInput.instanceID;
-	PSInput.position = mul( WORLDVIEWPROJ_STEREO[i], float4( VSInput.position, 1 ) );
+	PSInput.position = mul( WORLDVIEWPROJ_STEREO[i], psd );
 #else
-	PSInput.position = mul(WORLDVIEWPROJ, float4(VSInput.position, 1));
+	PSInput.position = mul(WORLDVIEWPROJ, psd );
 #endif
 #ifdef GEOMETRY_INSTANCEDSTEREO
 	PSInput.instanceID = VSInput.instanceID;

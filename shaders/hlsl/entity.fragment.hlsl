@@ -171,7 +171,7 @@ color.rgb = pow(color.rgb, 1.24);
 
 // S
 float3 tx = color.rgb;
-float S = 1.05;
+const float S = 1.05;
 if(tx.r > tx.g && tx.r > tx.b) {
 	color.r *= S;
 } else {
