@@ -2,16 +2,16 @@
     "format_version": 1,
     "header": {
         "description": "§b© 2021 @Rinrin_2nd All rights reserved.",
-        "name": "[ver1.0]§aRinrin Shader",
+        "name": "[ver1.1]§aRinrin Shader",
         "uuid": "4807cd43-2be1-47f1-af0a-a9d87d99e809",
-        "version": [0, 1, 0]
+        "version": [0, 1, 1]
     },
     "modules": [
         {
             "description": "§b© 2021 Rinrin.py All rights reserved.",
             "type": "resources",
             "uuid": "adfb3797-0b92-4651-9761-b56cd1cc6023",
-            "version": [0, 1, 0]
+            "version": [0, 1, 1]
         }
     ]
 }
