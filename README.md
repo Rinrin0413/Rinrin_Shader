@@ -26,12 +26,18 @@ ___
 ![photo1](pictures/photo1.png)
 ![photo2](pictures/photo2.png)
 ![photo3](pictures/photo3.png)
+![photo15](pictures/photo15.png)
 ![photo4](pictures/photo4.png)
 ![photo5](pictures/photo5.png)
 ![photo6](pictures/photo6.png)
 ![photo7](pictures/photo7.png)
 ![photo8](pictures/photo8.png)
 ![photo9](pictures/photo9.png)
+![photo10](pictures/photo10.png)
+![photo11](pictures/photo11.png)
+![photo12](pictures/photo12.png)
+![photo13](pictures/photo13.png)
+![photo14](pictures/photo14.png)
 ___
 > ### Known issues
 * When it rains, the ground seen from the sky is too white.
