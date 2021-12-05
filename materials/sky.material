@@ -1,0 +1,16 @@
+{
+  "sun_moon": {
+		"vertexShader" : "shaders/sun_moon.vertex",
+		"fragmentShader" : "shaders/sun_moon.fragment"
+  },
+  "skyplane": {
+    "states": [ "DisableDepthWrite", "DisableAlphaWrite" ],
+    "vertexShader" : "shaders/sky.vertex",
+		"fragmentShader" : "shaders/sky.fragment",
+    "vertexFields": [
+      { "field": "Position" },
+      { "field": "Color" }
+    ],
+    "msaaSupport": "Both"
+  }
+}

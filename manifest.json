@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "§bGNU GENERAL PUBLIC LICENSE",
+        "name": "[ver2.0]§aRinrin Shader",
+        "uuid": "4807cd43-2be1-47f1-af0a-a9d87d99e809",
+        "version": [0, 2, 0]
+    },
+    "modules": [
+        {
+            "description": "§bGNU GENERAL PUBLIC LICENSE",
+            "type": "resources",
+            "uuid": "adfb3797-0b92-4651-9761-b56cd1cc6023",
+            "version": [0, 2, 0]
+        }
+    ]
+}
