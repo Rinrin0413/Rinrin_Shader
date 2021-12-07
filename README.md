@@ -1,13 +1,15 @@
-# **Rinrin Shader**
+# **Rinrin Shader** ![Latest release version](https://img.shields.io/github/v/release/Rinrin0413/Rinrin_Shader?color=%23&label=Latest%20release&style=flat-square)
 
     Rinrin Shaders are made with self satisfaction. 
     Based on Rinrin's distorted perspectives.
 
 ---
 
-> ### Download
+> ### Download 
 
 &emsp;See [releases](https://github.com/Rinrin0413/Rinrin_Shader/releases)
+
+&emsp;![GitHub all releases](https://img.shields.io/github/downloads/Rinrin0413/Rinrin_Shader/total?style=plastic)
 
 ---
 
@@ -59,6 +61,8 @@
 
 > ### License
 
-&emsp;[GNU GENERAL PUBLIC LICENSE](./LICENSE.md)
+<br />
+
+&emsp;[![GPL-3.0](https://img.shields.io/github/license/Rinrin0413/Rinrin_Shader?color=%23BD0102&style=for-the-badge)](./LICENSE.md)
 
 ---
