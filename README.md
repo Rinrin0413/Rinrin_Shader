@@ -1,4 +1,4 @@
-# **Rinrin Shader** ![Latest release version](https://img.shields.io/github/v/release/Rinrin0413/Rinrin_Shader?color=%23&label=Latest%20release&style=flat-square)
+# **Rinrin Shader** ![Latest release version](https://img.shields.io/github/v/release/Rinrin0413/Rinrin_Shader?color=000&label=Latest%20release&style=flat-square)
 
     Rinrin Shaders are made with self satisfaction. 
     Based on Rinrin's distorted perspectives.
