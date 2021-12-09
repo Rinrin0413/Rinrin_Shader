@@ -16,7 +16,7 @@
 > ### Supported platforms & versions
 
 &emsp;Platform : `Windows10`<br>
-&emsp;Version : `v1.16.100 and above` or `1.18(non-RenderDragon version)`
+&emsp;Version : `v1.16.100 and above` or `1.18+(non-RenderDragon version)`
 
 ---
 
