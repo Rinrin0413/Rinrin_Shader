@@ -24,6 +24,7 @@
 ---
 
 > ### Major features
+
 - New shadow 
 - New light color
 - Fantastic sky
@@ -38,6 +39,10 @@
 
 > ### Pictures
 
+<details>
+    <summary>photos</summary>
+    <div>
+
 ![photo0](pictures/photo0.png)
 ![photo1](pictures/photo1.png)
 ![photo2](pictures/photo2.png)
@@ -50,6 +55,9 @@
 ![photo9](pictures/photo9.png)
 ![photo10](pictures/photo10.png)
 ![photo11](pictures/photo11.png)
+
+    </div>
+</details>
 
 ---
 
