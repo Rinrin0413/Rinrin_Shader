@@ -18,7 +18,7 @@
 
 > ### Supported platforms & versions
 
-&emsp;Platform : `Windows10`<br>
+&emsp;Platform : `Minecraft for Windows`<br>
 &emsp;Version : `v1.16.100 and above` or `1.18+(non-RenderDragon version)`
 
 ---
