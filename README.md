@@ -40,8 +40,8 @@
 > ### Pictures
 
 <details>
-    <summary>photos</summary>
-    <div>
+<summary>photos</summary>
+<div>
 
 ![photo0](pictures/photo0.png)
 ![photo1](pictures/photo1.png)
@@ -56,7 +56,7 @@
 ![photo10](pictures/photo10.png)
 ![photo11](pictures/photo11.png)
 
-    </div>
+</div>
 </details>
 
 ---
