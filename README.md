@@ -18,8 +18,8 @@
 
 > ### Supported platforms & versions
 
-&emsp;Platform : `Minecraft for Windows`<br>
-&emsp;Version : `v1.16.100 and above` or `x86(32bit)`
+&emsp;Platform: `Minecraft for Windows`<br>
+&emsp;Version: `v1.16.100 or earlier` or `x86(32bit) before 1.18.12 or earlier`
 
 ---
 
